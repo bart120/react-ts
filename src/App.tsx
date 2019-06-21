@@ -1,4 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
-render(<p>Bonjour</p>, document.getElementById('main'));
+import Counter from './components/counter/Counter';
+
+render(<div><p>Bonsoir</p><div><Counter /></div></div>, document.getElementById('main'));
+

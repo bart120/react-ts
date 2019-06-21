@@ -25748,8 +25748,34 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"App.tsx":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"components/counter/Counter.tsx":[function(require,module,exports) {
 "use strict";
+
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
 
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
@@ -25765,10 +25791,78 @@ exports.__esModule = true;
 
 var React = __importStar(require("react"));
 
+var Counter =
+/** @class */
+function (_super) {
+  __extends(Counter, _super);
+
+  function Counter() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.state = {
+      count: 0,
+      name: 'toto'
+    };
+
+    _this.increment = function () {
+      // this.state.count += 1;
+      _this.setState({
+        count: _this.state.count + 1
+      });
+
+      console.log(_this.state);
+    };
+
+    _this.decrement = function () {
+      _this.setState({
+        count: _this.state.count - 1
+      });
+    };
+
+    return _this;
+  }
+
+  Counter.prototype.render = function () {
+    return React.createElement("div", null, this.state.count != 0 ? React.createElement("h1", null, this.state.count) : null, React.createElement("h2", null, this.state.name), React.createElement("button", {
+      onClick: this.increment
+    }, "Increment"), React.createElement("button", {
+      onClick: this.decrement
+    }, "Decrement"));
+  };
+
+  return Counter;
+}(React.Component);
+
+exports["default"] = Counter;
+},{"react":"../node_modules/react/index.js"}],"App.tsx":[function(require,module,exports) {
+"use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  }
+  result["default"] = mod;
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+exports.__esModule = true;
+
+var React = __importStar(require("react"));
+
 var react_dom_1 = require("react-dom");
 
-react_dom_1.render(React.createElement("p", null, "Bonjour"), document.getElementById('main'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var Counter_1 = __importDefault(require("./components/counter/Counter"));
+
+react_dom_1.render(React.createElement("div", null, React.createElement("p", null, "Bonsoir"), React.createElement("div", null, React.createElement(Counter_1.default, null))), document.getElementById('main'));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/counter/Counter":"components/counter/Counter.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
