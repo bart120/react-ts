@@ -4,6 +4,7 @@
   "description": "formation react ts",
   "main": "index.js",
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,13 @@
   },
   "homepage": "https://github.com/bart120/react-ts#readme",
   "dependencies": {
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.5.2"
   }
 }
